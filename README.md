@@ -2,9 +2,8 @@
 
 A searchable, filterable, sortable explorer over 10,000 orders that stays fast and never shows the wrong results. Built for Problem Statement 1 of the Frontend Developer Assignment.
 
-- **Live app:** _add Vercel URL_
-- **API:** _add Render URL_
-- **Demo video:** _add link_
+- **Live app:** https://data-explorer-henna.vercel.app/
+- **API:** https://orders-explorer-api.onrender.com/api/orders
 
 ## Features
 
@@ -170,4 +169,4 @@ The frontend was built with Claude Code (Claude Opus).
 - **I directed:** the stack, the choice between numbered pages and infinite scroll, rendering detail as a route panel, and adding latency/failure simulation to the backend.
 - **I reviewed:** the generated code, ran the test suite, and checked behaviour in the browser.
 
-Chat history: _add share link_
+Full chat history: [docs/ai-chat-history.md](docs/ai-chat-history.md)

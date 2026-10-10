@@ -173,7 +173,8 @@ const OrdersPage = () => {
             page={query.page}
             limit={query.limit}
             totalPages={pagination?.totalPages ?? 0}
-            totalRecords={pagination?.totalRecords ?? 0}
+            totalRecords={isError ? null : (pagination?.totalRecords ?? null)}
+            loading={isInitialLoading}
             disabled={isInitialLoading || isError}
             onPageChange={(page) => update({ page })}
           />

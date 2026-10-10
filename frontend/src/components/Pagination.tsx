@@ -6,7 +6,8 @@ interface PaginationProps {
   page: number;
   limit: number;
   totalPages: number;
-  totalRecords: number;
+  totalRecords: number | null;
+  loading?: boolean;
   disabled?: boolean;
   onPageChange: (page: number) => void;
 }
@@ -18,10 +19,12 @@ const Pagination = ({
   page,
   limit,
   totalPages,
-  totalRecords,
+  totalRecords: knownTotal,
+  loading = false,
   disabled = false,
   onPageChange,
 }: PaginationProps) => {
+  const totalRecords = knownTotal ?? 0;
   const [draft, setDraft] = useState(String(page));
   const [syncedPage, setSyncedPage] = useState(page);
 
@@ -52,7 +55,9 @@ const Pagination = ({
       className="flex flex-col items-center justify-between gap-3 text-sm text-slate-600 sm:flex-row"
     >
       <p>
-        {totalRecords > 0 ? (
+        {knownTotal === null ? (
+          loading && "Loading orders…"
+        ) : totalRecords > 0 ? (
           <>
             Showing <span className="font-medium text-slate-900">{formatNumber(from)}</span>–
             <span className="font-medium text-slate-900">{formatNumber(to)}</span> of{" "}
